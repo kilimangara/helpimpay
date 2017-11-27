@@ -24,5 +24,5 @@ def create_help_im_pay(request):
         description = request.POST.get('formcomment')
         amount = request.POST.get('sum')
         payment = HelpImPayment.objects.create(description=description, amount=amount)
-        return redirect('/helpimpay/{}'.format(payment.id))
+        return redirect('/pay/{}'.format(payment.id))
 
