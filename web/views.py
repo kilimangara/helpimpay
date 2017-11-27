@@ -6,10 +6,6 @@ from django.template.context_processors import csrf
 
 from .models import HelpImPayment
 
-CODE_LENGTH = 6
-
-
-
 
 def help_im_pay(request, pk):
     try:
