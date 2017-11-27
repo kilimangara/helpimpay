@@ -1,0 +1,31 @@
+{% extends 'student_base.html' %}
+{% block main %}
+
+    {% if danger %}
+    <div class="alert alert-danger" role="alert">
+        Для доступа надо зарегистрироваться
+    </div>
+    {% endif %}
+
+    {% if no_phone %}
+     <div class="alert alert-danger" role="alert">
+        Сначала введите телефоне. По-другому никак.
+     </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            Вход
+            <form method="post" >
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="phoneNumber">Номер телефона (+7)</label>
+                    <input name="phone" type="tel" class="form-control" id="phoneNumber" aria-describedby="numberHelp" placeholder="Номер телефона">
+                    <small id="numberHelp" class="form-text text-muted">После ввода номера вам придет смс-код</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Получить</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

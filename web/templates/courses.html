@@ -1,0 +1,14 @@
+{% extends 'student_base.html' %}
+
+{% block main %}
+    {% for course in courses %}
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card_title">{{ course.subject }}</h4>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: {{ course.progress }}%" aria-valuenow="{{ course.progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

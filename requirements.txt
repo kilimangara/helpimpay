@@ -1,0 +1,4 @@
+Django==1.11.4
+docutils==0.14
+pytz==2017.2
+psycopg2

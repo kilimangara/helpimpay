@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Оплата</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "base/images/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "base/manifest.json" %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        {% if url %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Осталось только оплатить!</h4>
+        <p>Перейдите по <a href="{{ url }}" class="alert-link">Этой ссылке</a></p>
+        <hr>
+        <p class="mb-0">Оплата теста. 500 рублей</p>
+        </div>
+        {% endif %}
+    <form action="/pay/" method="post">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="email1">Введите свое ФИО</label>
+        <input name="name" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Введите имя">
+        <small id="emailHelp" class="form-text text-muted">Нам нужно имя для идентификаций оплат</small>
+          <label for="contact">Контактные данные</label>
+        <input name="contact" class="form-control" id="contact" placeholder="Телефон, ссылку вк или телеграм">
+      </div>
+      <button type="submit" class="btn btn-primary">Оплатить</button>
+    </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

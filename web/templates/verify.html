@@ -1,0 +1,24 @@
+{% extends 'student_base.html' %}
+{% block main %}
+
+    {% if danger %}
+    <div class="alert alert-danger" role="alert">
+        Код введен неверно
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            Вход
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="codeNumber">Номер телефона (+7)</label>
+                    <input name="code" type="number" class="form-control" id="codeNumber" aria-describedby="codeHelp" placeholder="Код">
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
